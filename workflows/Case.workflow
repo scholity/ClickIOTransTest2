@@ -89,6 +89,17 @@
         <template>Refund_Invoice_Corrections/Invoice_Dispute_Resolved_Auto</template>
     </alerts>
     <alerts>
+        <fullName>Send_Email_to_Customer_When_Case_Closed</fullName>
+        <description>Send Email to Customer When Case Closed</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>All/Customer_Case_Closed</template>
+    </alerts>
+    <alerts>
         <fullName>Social_New_Case_Notification</fullName>
         <description>Social- New Case Notification</description>
         <protected>false</protected>
@@ -201,6 +212,17 @@
         <name>Billing Web Request Wrong Org</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>CRE</fullName>
+        <description>Moves new CRE cases to FIN Billing queue</description>
+        <field>OwnerId</field>
+        <lookupValue>CCO_Specialist</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>CRE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -1609,6 +1631,18 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Learn_to_Swim_reg_subject</fullName>
+        <description>Update to Subject on Learn to Swim Facility Registration to:
+
+Learn To Swim Facility Registration - Account Name</description>
+        <field>Subject</field>
+        <formula>Account.Name +&quot; - &quot;+ &quot;Learn to Swim Facility Registration&quot;</formula>
+        <name>Update Learn to Swim reg - subject</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Log_In_Email</fullName>
         <field>External_LOGIN_EMAIL__c</field>
         <formula>Account.Log_In_Email__c</formula>
@@ -2101,6 +2135,21 @@ CreatedBy.FirstName = &quot;BillingRequestForm&quot;,
         <active>false</active>
         <description>When Billing Web Request Type =Refund Credit Balance, the WF sets up Invoice Case Sub Type = Duplicate Invice, Case Owner = Finance COE/Billing</description>
         <formula>AND( ISPICKVAL( Billing_Web_Request_Type__c ,&quot;Refund Credit Balance&quot;),  CreatedBy.FirstName = &quot;BillingRequestForm&quot;, ISPICKVAL(Origin, &quot;Web to Case&quot;),  $Setup.Workflow_Rules__c.Bypass_Rules__c = False )</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>CRE</fullName>
+        <actions>
+            <name>CRE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>CRE</value>
+        </criteriaItems>
+        <description>Moves CRE cases to Fin Billing queue</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
@@ -2842,6 +2891,26 @@ ISPICKVAL( Follow_Up_Group__c, &quot;Course Records&quot;) ,
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Customer Initiated Case Closed</fullName>
+        <actions>
+            <name>Send_Email_to_Customer_When_Case_Closed</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Closed - Resolved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>Email,Web to Case</value>
+        </criteriaItems>
+        <description>Workflow to send an email to a customer when a case they have initiated has been closed</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Delivery failure email</fullName>
         <actions>
             <name>Case_to_temp_queue</name>
@@ -2946,7 +3015,7 @@ ISPICKVAL( Follow_Up_Group__c, &quot;Course Records&quot;) ,
         </actions>
         <active>true</active>
         <description>Tag a case with Case Origin = Community if the case was created by a community user via the community</description>
-        <formula>ISPICKVAL( $User.UserType, &apos;Customer Portal User&apos;) || CONTAINS ($Profile.Name, &apos;Community&apos;)</formula>
+        <formula>(ISPICKVAL( $User.UserType, &apos;Customer Portal User&apos;) || CONTAINS ($Profile.Name, &apos;Community&apos;)) &amp;&amp;     ISBLANK( CC_Order__c )</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
@@ -4573,6 +4642,23 @@ Change_Invoice_New_Status__c = FALSE</formula>
         <description>Wflow will update the Customer Notified of Resolution On (API) field when &quot;Customer Notified of Resolution &quot; checkbox is checked.</description>
         <formula>AND( Customer_Notified_of_Resolution__c = true,  OR( PRIORVALUE(Customer_Notified_of_Resolution__c ) = false , ISNEW() ),  $Setup.Workflow_Rules__c.Bypass_Rules__c = FALSE   )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Learn to Swim</fullName>
+        <actions>
+            <name>Update_Learn_to_Swim_reg_subject</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Learn to Swim Facility Registration</value>
+        </criteriaItems>
+        <description>Workflow to update subject on Learn to Swim Facility Registration case upon creation. Update to - 
+
+Learn To Swim Facility Registration - Account Name</description>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Update Log In Email when it is Blank</fullName>

@@ -757,6 +757,38 @@ IF(Ispickval( Timeline__c, &quot;3 Months&quot;), 0.25, If(Ispickval( Timeline__
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Contact_SCC_Sync_Status__c</fullName>
+        <defaultValue>&quot;Created&quot;</defaultValue>
+        <description>This field hold contact status when its created, updated from Salesforce Commerce Cloud.</description>
+        <externalId>false</externalId>
+        <label>Contact SCC Sync Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Created</fullName>
+                    <default>true</default>
+                    <label>Created</label>
+                </value>
+                <value>
+                    <fullName>Updated</fullName>
+                    <default>false</default>
+                    <label>Updated</label>
+                </value>
+                <value>
+                    <fullName>Synchronised</fullName>
+                    <default>false</default>
+                    <label>Synchronised</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>DM_External_Id__c</fullName>
         <caseSensitive>true</caseSensitive>
         <description>This field is utilized to support the data migration process. It will contain a combination of the source system identifier and the source system&apos;s unique record identifier. This field should be deleted after all migration activities are complete.</description>
@@ -1824,6 +1856,40 @@ IF(Ispickval( Timeline__c, &quot;3 Months&quot;), 0.25, If(Ispickval( Timeline__
                     <fullName>Aquatics</fullName>
                     <default>false</default>
                     <label>Aquatics</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type_of_Service__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Service</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Training My Own Employees</fullName>
+                    <default>false</default>
+                    <label>Training My Own Employees</label>
+                </value>
+                <value>
+                    <fullName>Training Companies/Individuals in My Community</fullName>
+                    <default>false</default>
+                    <label>Training Companies/Individuals in My Community</label>
+                </value>
+                <value>
+                    <fullName>Having Red Cross Train at My Facility</fullName>
+                    <default>false</default>
+                    <label>Having Red Cross Train at My Facility</label>
+                </value>
+                <value>
+                    <fullName>Sending Students to Red Cross for Training</fullName>
+                    <default>false</default>
+                    <label>Sending Students to Red Cross for Training</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

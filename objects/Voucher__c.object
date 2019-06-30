@@ -400,6 +400,11 @@ ILT_Class__r.ltui__Start_Time_Formatted__c</formula>
                     <default>false</default>
                     <label>Blocked</label>
                 </value>
+                <value>
+                    <fullName>Void</fullName>
+                    <default>false</default>
+                    <label>Void</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>

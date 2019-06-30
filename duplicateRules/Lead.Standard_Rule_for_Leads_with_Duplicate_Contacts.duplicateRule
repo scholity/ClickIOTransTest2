@@ -20,16 +20,16 @@
                 <outputField>ShippingState</outputField>
             </mappingFields>
             <mappingFields>
+                <inputField>PostalCode</inputField>
+                <outputField>ShippingPostalCode</outputField>
+            </mappingFields>
+            <mappingFields>
                 <inputField>Company</inputField>
                 <outputField>Name</outputField>
             </mappingFields>
             <mappingFields>
                 <inputField>Phone</inputField>
                 <outputField>Phone</outputField>
-            </mappingFields>
-            <mappingFields>
-                <inputField>PostalCode</inputField>
-                <outputField>ShippingPostalCode</outputField>
             </mappingFields>
             <outputObject>Account</outputObject>
         </objectMapping>

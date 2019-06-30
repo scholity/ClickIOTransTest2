@@ -185,10 +185,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>skedSkeduloApiManager</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>skedSupportImportTriggerTests</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -275,6 +271,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Course_Catalog__c.Is_Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Course_Catalog__c.Master_Class_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -843,7 +844,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>sked__Job_Allocation__c.Is_Subcontractor__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -853,8 +854,18 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>sked__Job_Allocation__c.sked_Job_Start__c</field>
+        <editable>true</editable>
+        <field>sked__Job_Allocation__c.Number_of_Resources__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job_Allocation__c.Skedulo_API_Error_Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job_Allocation__c.Skedulo_API_Error__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -878,13 +889,18 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>sked__Job_Allocation__c.sked__Duration__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>sked__Job_Allocation__c.sked__End1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job_Allocation__c.sked__Estimated_Travel_Distance__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -905,16 +921,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>sked__Job_Allocation__c.sked__Phone_Response__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>sked__Job_Allocation__c.sked__Slot__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>sked__Job_Allocation__c.sked__Start__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -955,6 +961,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>sked__Job_Allocation__c.sked__Time_Start_Travel__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job_Allocation__c.sked__Travel_Distance__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job_Allocation__c.sked__Travel_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1048,7 +1064,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>sked__Job__c.Class_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1084,6 +1100,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>sked__Job__c.Course_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>sked__Job__c.Course__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1093,8 +1114,8 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>sked__Job__c.Duration_hours__c</field>
+        <editable>true</editable>
+        <field>sked__Job__c.Display_Order__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1124,7 +1145,52 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>sked__Job__c.Grid_Setting_Employment_Types__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job__c.Grid_Setting_Interval__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job__c.Grid_Setting_Radius__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job__c.Grid_Setting_Scheduled_Hours__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job__c.Grid_Setting_Show_24_Hours__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job__c.Grid_Setting_Subconstractor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job__c.Is_Master_Class__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job__c.Is_Previously_Cancelled__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>sked__Job__c.Is_Queued__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job__c.Is_Stacked_Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1133,12 +1199,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>sked__Job__c.Job_Tag_Count__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>sked__Job__c.Job_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1180,6 +1241,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>sked__Job__c.Number_of_Students__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job__c.Ready_to_Publish__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1284,6 +1350,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>sked__Job__c.sked__Customer_Confirmation_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>sked__Job__c.sked__Customer_Job_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1328,7 +1399,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>sked__Job__c.sked__Job_Allocation_Time_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1365,6 +1436,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>sked__Job__c.sked__Parent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sked__Job__c.sked__Quantity__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1932,10 +2008,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>skedScheduleAllocation</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>skedTrainingEventCancellation</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

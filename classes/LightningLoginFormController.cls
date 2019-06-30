@@ -61,5 +61,18 @@ global class LightningLoginFormController {
         } catch (Exception ex) {
             return ex.getMessage();            
         }
-    }   
+    }
+
+    @AuraEnabled
+    global static Boolean checkUserEmail(String email) {
+        // checks if user with the email exists already in salesforce
+        // TBC - email or username is the reference?
+
+        List<User> users = [SELECT Id FROM User WHERE Username = :email];
+        if (users.size() > 0) {
+            return true;
+        } 
+        return false;
+    }
+    
 }

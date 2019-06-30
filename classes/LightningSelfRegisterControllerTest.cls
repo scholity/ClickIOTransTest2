@@ -1,4 +1,4 @@
-@IsTest(SeeAllData = true)
+@IsTest (SeeAllData = true)
 public with sharing class LightningSelfRegisterControllerTest {
 
  /* Verifies that IsValidPassword method with various password combinations. */
@@ -99,4 +99,37 @@ public with sharing class LightningSelfRegisterControllerTest {
   paramsMap.put('startUrl', startUrl);
   return paramsMap;
  }
+    
+    @isTest
+    static void testSetExpId() {
+        String expId = 'ad034';
+        String retString = LightningSelfRegisterController.setExperienceId(expId);
+        System.debug(retString);
+        System.assertNotEquals(null, retString);
+	}
+    
+    @isTest
+    static void testCheckUserEmail() {
+        
+        // create user to make sure it exists
+        User u = new User();
+        u.FirstName = 'Test';
+        u.LastName = 'User';
+        u.Alias = 'tstu';
+        u.Username = 'testuser123@gmail124.de';
+        u.Email = 'testuser123@gmail124.de';
+        u.CommunityNickname = 'testuser123';
+        u.TimeZoneSidKey = 'GMT';
+        u.LocaleSidKey = 'en_US';
+        u.EmailEncodingKey = 'ISO-8859-1';
+        u.ProfileId = [SELECT Id FROM Profile WHERE Name = 'Standard User' LIMIT 1].Id;
+        u.LanguageLocaleKey = 'en_US';
+        insert u;
+        
+        Boolean test1 = LightningSelfRegisterController.checkUserEmail( u.Email);
+        System.assertEquals(test1, true);
+        
+        Boolean test2 = LightningSelfRegisterController.checkUserEmail( 'notexistantuser123@123.com' );
+        System.assertEquals(test2, false);
+    }
 }

@@ -21,8 +21,24 @@
         <name>Case_Comment_Management</name>
     </customApplications>
     <customApplications>
+        <label><!-- Grant Management --></label>
+        <name>Grant_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Grants --></label>
+        <name>Grants</name>
+    </customApplications>
+    <customApplications>
         <label><!-- IRT Service Console --></label>
         <name>IRT_Service_Console</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- LMS Admin --></label>
+        <name>LMS_Admin</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- LMS Admin Lightning --></label>
+        <name>LMS_Admin_Lightning</name>
     </customApplications>
     <customApplications>
         <label><!-- PHSS Instructors Community --></label>
@@ -521,6 +537,10 @@
         <name>Community_Scheduling</name>
     </customTabs>
     <customTabs>
+        <label><!-- Course Record Entry --></label>
+        <name>Course_Record_Entry</name>
+    </customTabs>
+    <customTabs>
         <label><!-- Getting Started --></label>
         <name>Getting_Started</name>
     </customTabs>
@@ -535,6 +555,10 @@
     <customTabs>
         <label><!-- RedCross.org --></label>
         <name>RedCross_org</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Request Blended Class --></label>
+        <name>Request_Blended_Class</name>
     </customTabs>
     <customTabs>
         <label><!-- Resource Activity Report --></label>
@@ -558,15 +582,638 @@
     </customTabs>
     <flowDefinitions>
         <flows>
+            <fullName>Account_Controller-1</fullName>
+        </flows>
+        <fullName>Account_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>AccountContractRelationshipController-1</fullName>
+        </flows>
+        <fullName>AccountContractRelationshipController</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Add_Cancelation_Fee_to_Order-1</fullName>
+            <screens>
+                <fields>
+                    <name>CancellationFeeHeader</name>
+                </fields>
+                <fields>
+                    <name>Comments</name>
+                </fields>
+                <name>Cancellation_Fee_Notes</name>
+            </screens>
+        </flows>
+        <fullName>Add_Cancelation_Fee_to_Order</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Achievement_Assignment_Controller-1</fullName>
+        </flows>
+        <fullName>Achievement_Assignment_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Add_Contact_Email_Phone_Address_to_Individual_Account-1</fullName>
+        </flows>
+        <fullName>Add_Contact_Email_Phone_Address_to_Individual_Account</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Contract_Controller-1</fullName>
+        </flows>
+        <fullName>Contract_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Community_User_Deactivated-1</fullName>
+        </flows>
+        <fullName>Community_User_Deactivated</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Contract_Expiration_Notifications-1</fullName>
+        </flows>
+        <fullName>Contract_Expiration_Notifications</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Appinium_Instructor-1</fullName>
+        </flows>
+        <fullName>Create_Appinium_Instructor</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Account_When_Missing_on_Contact-1</fullName>
+        </flows>
+        <fullName>Create_Account_When_Missing_on_Contact</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <name>GeneralStore</name>
+            </choices>
+            <choices>
+                <name>CREStore</name>
+            </choices>
+            <choices>
+                <name>CPS</name>
+            </choices>
+            <fullName>Add_Product_to_Price_List-1</fullName>
+            <screens>
+                <fields>
+                    <name>Effective_End</name>
+                </fields>
+                <fields>
+                    <name>Effective_Start</name>
+                </fields>
+                <fields>
+                    <name>Enabled</name>
+                </fields>
+                <fields>
+                    <name>Product</name>
+                </fields>
+                <fields>
+                    <name>Select_Price_Lists</name>
+                </fields>
+                <fields>
+                    <name>Storefront_1</name>
+                </fields>
+                <fields>
+                    <name>scnPrice</name>
+                </fields>
+                <name>Establish_Base_Price</name>
+            </screens>
+        </flows>
+        <fullName>Add_Product_to_Price_List</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Add_Onsite_Fee_Waiver-1</fullName>
+            <screens>
+                <fields>
+                    <name>Error</name>
+                </fields>
+                <name>Error_Message</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>Comments</name>
+                </fields>
+                <fields>
+                    <name>RescheduleFeeHeader</name>
+                </fields>
+                <name>Onsite_Fee_Screen</name>
+            </screens>
+        </flows>
+        <fullName>Add_Onsite_Fee_Waiver</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Cart_Controller-1</fullName>
+        </flows>
+        <fullName>Cart_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Add_Rescheduling_Fee_to_Order-1</fullName>
+            <screens>
+                <fields>
+                    <name>Comments</name>
+                </fields>
+                <fields>
+                    <name>RescheduleFeeHeader</name>
+                </fields>
+                <name>Reschedule_Fee_Screen</name>
+            </screens>
+        </flows>
+        <fullName>Add_Rescheduling_Fee_to_Order</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_New_Account_When_Account_is_Missing_on_Contact-1</fullName>
+        </flows>
+        <fullName>Create_New_Account_When_Account_is_Missing_on_Contact</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Learning_Assignment_Approver_Case-1</fullName>
+        </flows>
+        <fullName>Create_Learning_Assignment_Approver_Case</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Sales_Oppurtunity-1</fullName>
+        </flows>
+        <fullName>Create_Sales_Oppurtunity</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Update_Instructor_or_Partner_Profile_ID-1</fullName>
+        </flows>
+        <fullName>Update_Instructor_or_Partner_Profile_ID</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Social_Awaiting_Customer_Response-1</fullName>
+        </flows>
+        <fullName>Social_Awaiting_Customer_Response</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Social_Content_populate_onto_Case-1</fullName>
+        </flows>
+        <fullName>Social_Content_populate_onto_Case</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Update_Contact_based_on_User-1</fullName>
+        </flows>
+        <fullName>Update_Contact_based_on_User</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_On_Hold_Order_Case-1</fullName>
+        </flows>
+        <fullName>Create_On_Hold_Order_Case</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <name>GeneralStore</name>
+            </choices>
+            <choices>
+                <name>CREStore</name>
+            </choices>
+            <choices>
+                <name>CPS</name>
+            </choices>
+            <fullName>Create_Contract-1</fullName>
+            <screens>
+                <fields>
+                    <name>Effective_End_Date</name>
+                    <validationRule/>
+                </fields>
+                <fields>
+                    <name>Effective_Start_Date</name>
+                </fields>
+                <fields>
+                    <name>Enabled</name>
+                </fields>
+                <fields>
+                    <name>Group_Name</name>
+                </fields>
+                <fields>
+                    <name>Storefront</name>
+                </fields>
+                <fields>
+                    <name>dspAccount</name>
+                </fields>
+                <fields>
+                    <name>dspOppurtunityName</name>
+                </fields>
+                <name>Establish_Price_Group</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>ApprovalDisplay</name>
+                </fields>
+                <fields>
+                    <name>FinalMessage</name>
+                </fields>
+                <name>FinalScreen</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>Selected_Price_Lists</name>
+                </fields>
+                <name>Price_Lists</name>
+            </screens>
+        </flows>
+        <fullName>Create_Contract</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Child_Price_Group_Account_Records-1</fullName>
+        </flows>
+        <fullName>Create_Child_Price_Group_Account_Records</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Grant_Claim_Payment-1</fullName>
+        </flows>
+        <fullName>Create_Grant_Claim_Payment</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Credit_Records-1</fullName>
+        </flows>
+        <fullName>Create_Credit_Records</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Generate_ILT_Class_Roster_PDF-1</fullName>
+        </flows>
+        <fullName>Generate_ILT_Class_Roster_PDF</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Social_Rejected_Post-3</fullName>
+        </flows>
+        <fullName>Social_Rejected_Post</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Social_timestamps-2</fullName>
+        </flows>
+        <fullName>Social_timestamps</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Expire_Achievement_Assignment_Records-1</fullName>
+        </flows>
+        <fullName>Expire_Achievement_Assignment_Records</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Grant_Payment-1</fullName>
+        </flows>
+        <fullName>Grant_Payment</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Grant_Claim_Controller-1</fullName>
+        </flows>
+        <fullName>Grant_Claim_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Training_Revenue_Record-1</fullName>
+        </flows>
+        <fullName>Create_Training_Revenue_Record</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Update_Order_Opportunity_for_Closed_Won-1</fullName>
+        </flows>
+        <fullName>Update_Order_Opportunity_for_Closed_Won</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Social_Customer_Follow_Up-2</fullName>
+        </flows>
+        <fullName>Social_Customer_Follow_Up</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Training_Event_from_Opputunity-1</fullName>
+        </flows>
+        <fullName>Create_Training_Event_from_Opputunity</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Update_Order_Opportunity-1</fullName>
+        </flows>
+        <fullName>Update_Order_Opportunity</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Social_Follower_Count-1</fullName>
+        </flows>
+        <fullName>Social_Follower_Count</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Social_Pending_Approval-2</fullName>
+        </flows>
+        <fullName>Social_Pending_Approval</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Expire-1</fullName>
+        </flows>
+        <fullName>Expire</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Vouchers_from_TE_V2-1</fullName>
+        </flows>
+        <fullName>Create_Vouchers_from_TE_V2</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Social_Priority_setting_on_case-1</fullName>
+        </flows>
+        <fullName>Social_Priority_setting_on_case</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>ILT_Roster_Resend_Confirmation-1</fullName>
+        </flows>
+        <fullName>ILT_Roster_Resend_Confirmation</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Grant_Request_Controller-1</fullName>
+        </flows>
+        <fullName>Grant_Request_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Opportunity_Controller-1</fullName>
+        </flows>
+        <fullName>Opportunity_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>LoginFlow_for_Community_Users-2</fullName>
+            <screens>
+                <fields>
+                    <name>I_accept</name>
+                </fields>
+                <fields>
+                    <name>TermsAndConditions</name>
+                </fields>
+                <name>Accept_TC</name>
+            </screens>
+        </flows>
+        <fullName>LoginFlow_for_Community_Users</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Manage_Order_Status-1</fullName>
+        </flows>
+        <fullName>Manage_Order_Status</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Order_Fulfillment_Status_Change-1</fullName>
+        </flows>
+        <fullName>Order_Fulfillment_Status_Change</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Opportunity_to_Contract-1</fullName>
+        </flows>
+        <fullName>Opportunity_to_Contract</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Learning_Plan_Assignment_Controller-1</fullName>
+        </flows>
+        <fullName>Learning_Plan_Assignment_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Learning_Assignment-1</fullName>
+        </flows>
+        <fullName>Learning_Assignment</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Manage_Credit_Status-1</fullName>
+        </flows>
+        <fullName>Manage_Credit_Status</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Learning_Plan_Section_Assignment-1</fullName>
+        </flows>
+        <fullName>Learning_Plan_Section_Assignment</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Process_Scheduler_Controller-1</fullName>
+        </flows>
+        <fullName>Process_Scheduler_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Process_On_Hold_Orders-1</fullName>
+        </flows>
+        <fullName>Process_On_Hold_Orders</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Revoke_Grant_Request-1</fullName>
+            <screens>
+                <fields>
+                    <name>Grant_Claim_Exist</name>
+                </fields>
+                <name>Grant_Claims_Exist</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>GrantRequestConfirm</name>
+                </fields>
+                <name>Grant_Request_Reject_Confirm</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>RejectedNote</name>
+                </fields>
+                <name>RejectGrant</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>GrantName</name>
+                </fields>
+                <name>Revoke_Grant_Request</name>
+            </screens>
+        </flows>
+        <fullName>Revoke_Grant_Request</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Revoke_Grant-1</fullName>
+        </flows>
+        <fullName>Revoke_Grant</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
             <fullName>PHSS_User_Provisioning_Logger-1</fullName>
         </flows>
         <fullName>PHSS_User_Provisioning_Logger</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows>
+            <fullName>Order_Item_Set_Reservations-1</fullName>
+        </flows>
+        <fullName>Order_Item_Set_Reservations</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Order_Item_Controller-1</fullName>
+        </flows>
+        <fullName>Order_Item_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Order_Status_Controller-1</fullName>
+        </flows>
+        <fullName>Order_Status_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Order_Item_Status_Controller_Change-1</fullName>
+        </flows>
+        <fullName>Order_Item_Status_Controller_Change</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Set_Order_Item_Emails-1</fullName>
+        </flows>
+        <fullName>Set_Order_Item_Emails</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
             <fullName>Update_Case_Resolution-2</fullName>
         </flows>
         <fullName>Update_Case_Resolution</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Set_Order_Approval_Level-1</fullName>
+        </flows>
+        <fullName>Set_Order_Approval_Level</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Transaction_Payment_Controller-1</fullName>
+        </flows>
+        <fullName>Transaction_Payment_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Training_Event_Controller-1</fullName>
+        </flows>
+        <fullName>Training_Event_Controller</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Select_Budget-1</fullName>
+            <screens>
+                <fields>
+                    <name>Available_Budgets_Lists1</name>
+                </fields>
+                <name>Available_Budgets</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>Effective_End_Date</name>
+                    <validationRule/>
+                </fields>
+                <fields>
+                    <name>Effective_Start_Date</name>
+                </fields>
+                <fields>
+                    <name>dspAccount</name>
+                </fields>
+                <fields>
+                    <name>dspGrantActivityDate</name>
+                </fields>
+                <fields>
+                    <name>dspGrantActivityType</name>
+                </fields>
+                <fields>
+                    <name>dspGrantAmount</name>
+                </fields>
+                <fields>
+                    <name>dspGrantName</name>
+                </fields>
+                <name>Find_Available_Budgets</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>ErrorMessage</name>
+                </fields>
+                <name>Request_has_been_ap</name>
+            </screens>
+        </flows>
+        <fullName>Select_Budget</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Revoke_Issued_Grant-1</fullName>
+            <screens>
+                <fields>
+                    <name>NotPaidNote</name>
+                </fields>
+                <name>NotPaidRevoke</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>IsRejectedNote</name>
+                </fields>
+                <name>PreviouslyRejected</name>
+            </screens>
+            <screens>
+                <fields>
+                    <name>ClaimAmount</name>
+                </fields>
+                <fields>
+                    <name>ClaimBudget</name>
+                </fields>
+                <fields>
+                    <name>ClaimName</name>
+                </fields>
+                <fields>
+                    <name>Reason_for_revoking_claim</name>
+                </fields>
+                <fields>
+                    <name>Status</name>
+                </fields>
+                <name>Revoke_Claim</name>
+            </screens>
+        </flows>
+        <fullName>Revoke_Issued_Grant</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Set_Cart_Approval_Level-1</fullName>
+        </flows>
+        <fullName>Set_Cart_Approval_Level</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows>
@@ -1143,6 +1790,24 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows>
+            <fullName>Send_Email_when_Order_Line_Item_is_Cancelled-1</fullName>
+        </flows>
+        <fullName>Send_Email_when_Order_Line_Item_is_Cancelled</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Update_CC_Order_PO_Number-1</fullName>
+        </flows>
+        <fullName>Update_CC_Order_PO_Number</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Update_Account_Groups-1</fullName>
+        </flows>
+        <fullName>Update_Account_Groups</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
             <fullName>Update_Contact_Info_from_User_record-2</fullName>
         </flows>
         <fullName>Update_Contact_Info_from_User_record</fullName>
@@ -1158,12 +1823,6 @@
             <fullName>PHSS_Certification_Provisioning_Logger-1</fullName>
         </flows>
         <fullName>PHSS_Certification_Provisioning_Logger</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows>
-            <fullName>Contract_Expiration_Notifications-1</fullName>
-        </flows>
-        <fullName>Contract_Expiration_Notifications</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows>
@@ -1185,63 +1844,15 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows>
-            <fullName>Social_Awaiting_Customer_Response-1</fullName>
-        </flows>
-        <fullName>Social_Awaiting_Customer_Response</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows>
-            <fullName>Social_Content_populate_onto_Case-1</fullName>
-        </flows>
-        <fullName>Social_Content_populate_onto_Case</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows>
             <fullName>AED_Offers-1</fullName>
         </flows>
         <fullName>AED_Offers</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows>
-            <fullName>Social_Rejected_Post-3</fullName>
-        </flows>
-        <fullName>Social_Rejected_Post</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows>
-            <fullName>Social_timestamps-2</fullName>
-        </flows>
-        <fullName>Social_timestamps</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows>
-            <fullName>Social_Customer_Follow_Up-2</fullName>
-        </flows>
-        <fullName>Social_Customer_Follow_Up</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows>
-            <fullName>Social_Follower_Count-1</fullName>
-        </flows>
-        <fullName>Social_Follower_Count</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows>
-            <fullName>Social_Pending_Approval-2</fullName>
-        </flows>
-        <fullName>Social_Pending_Approval</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows>
             <fullName>Update_Billing_State_from_Accounts-2</fullName>
         </flows>
         <fullName>Update_Billing_State_from_Accounts</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows>
-            <fullName>Social_Priority_setting_on_case-1</fullName>
-        </flows>
-        <fullName>Social_Priority_setting_on_case</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows>
@@ -1830,21 +2441,6 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows>
-            <fullName>LoginFlow_for_Community_Users-2</fullName>
-            <screens>
-                <fields>
-                    <name>I_accept</name>
-                </fields>
-                <fields>
-                    <name>TermsAndConditions</name>
-                </fields>
-                <name>Accept_TC</name>
-            </screens>
-        </flows>
-        <fullName>LoginFlow_for_Community_Users</fullName>
-    </flowDefinitions>
-    <flowDefinitions>
-        <flows>
             <choices>
                 <name>c_b846676c_8b82_4c9d_979d_5fd3dedff4c2</name>
             </choices>
@@ -1991,6 +2587,18 @@
         <fullName>rsg_customer_satisfaction_survey_with_web_experience</fullName>
     </flowDefinitions>
     <quickActions>
+        <label><!-- Add or Remove Affiliation --></label>
+        <name>Add_or_Remove_Affiliation</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create New Grant Request --></label>
+        <name>Apply_For_Grant</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create New Learn to Swim Registration --></label>
+        <name>Create_New_Learn_to_Swim_Registration</name>
+    </quickActions>
+    <quickActions>
         <label><!-- Guest Community Case --></label>
         <name>GuestCommunityCase</name>
     </quickActions>
@@ -2040,7 +2648,31 @@
     </quickActions>
     <quickActions>
         <label><!-- Create New Case --></label>
+        <name>PHSS_Create_Instructor_Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create New Case --></label>
+        <name>PHSS_Create_Learner_Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create New Case --></label>
+        <name>PHSS_Create_Partner_Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create New Case --></label>
         <name>PHSS_Create_Service_Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Record Learn to Swim Class --></label>
+        <name>Record_Learn_to_Swim_Class</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Record Safety Outreach --></label>
+        <name>Record_Safety_Outreach</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Remove Affiliation --></label>
+        <name>Remove_Affiliation</name>
     </quickActions>
     <quickActions>
         <label><!-- SendEmail --></label>

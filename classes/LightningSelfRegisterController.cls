@@ -1,4 +1,7 @@
-global class LightningSelfRegisterController {
+global without sharing class LightningSelfRegisterController {
+
+    private static final String DUPLICATE_VALUE_ERROR = 'DUPLICATE_VALUE';
+    private static final String EXTERNAL_ID_FIELD = 'DM_External_Id__c';
 
     public LightningSelfRegisterController() {
 
@@ -25,8 +28,16 @@ global class LightningSelfRegisterController {
     
     @AuraEnabled
     public static String selfRegister(String firstname ,String lastname, String email, String password, String confirmPassword, String accountId, String regConfirmUrl, String extraFields, String startUrl, Boolean includePassword) {
+
+        // check if email provided exists already as username
+        List<User> users = [SELECT Id FROM User WHERE Username = :email];
+        if (users.size() > 0) {
+            return 'A user with this email address already exists. Contact Red Cross Technical Support Team for assistance.';
+        }
+
         Savepoint sp = null;
         try {
+
             sp = Database.setSavepoint();
             
             if (lastname == null || String.isEmpty(lastname)) {
@@ -37,12 +48,36 @@ global class LightningSelfRegisterController {
                 return Label.Site.email_is_required;
             }
             
+            // Create new account and contact record to associate with the user record
+            Profile learnerProfile = [SELECT Id, Name FROM Profile WHERE Name = 'Learner Community Profile' LIMIT 1];
+            
+            String sysAdminId = [Select id from user where UserRoleId != null and profile.Name = 'System Administrator' and isActive=true limit 1].Id;
+            Account acc = new Account();
+            acc.Name = firstname +' '+ lastname;
+            acc.OwnerId = sysAdminId;
+            acc.DM_External_Id__c = firstname + lastname + email;
+            acc.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Individual Account').getRecordTypeId();
+            insert acc;
+            
+            Contact con = new Contact();
+            con.LastName = lastname;
+            con.FirstName = firstname;
+            con.Email = email;
+            con.AccountId = acc.Id;
+            con.DM_External_Id__c = firstname + lastname + email;
+            insert con;
+            
             User u = new User();
-            u.Username = email;
+//            u.Username = firstname + lastname + email;
+            u.Username = email; // changed on 5th June as rep US1470
             u.put('Email',email);
             
             u.FirstName = firstname;
             u.LastName = lastname;
+            u.ProfileId = learnerProfile.Id;
+
+            // Associate contact with the user record
+            u.ContactId = con.Id;
             
             String networkId = Network.getNetworkId();
 
@@ -75,16 +110,28 @@ global class LightningSelfRegisterController {
             }
             
             // lastName is a required field on user, but if it isn't specified, we'll default it to the username
-            String userId = Site.createPortalUser(u, accountId, password);
+            String userId = Site.createPortalUser(u, acc.Id, password);
+            
+            // Assign permission set
+            List<Id> userList = new List<Id>();
+            userList.add(userId);
+            
+            if(!Test.isRunningTest()) {
+            	ILTInstructorCommunity.assignUserPermission(userList);
+            }
+            
             // create a fake userId for test.
             if (Test.isRunningTest()) {
                 userId = 'fakeUserId';           
             }
-            if (userId != null) { 
+            if (userId != null) {
                 if (password != null && password.length() > 1) {
-                    ApexPages.PageReference lgn = Site.login(email, password, startUrl);
+                    Network myNetwork = [SELECT Id FROM Network WHERE Name ='Red Cross Learning Center'];
+                    String loginUrl = Network.getLoginUrl(myNetwork.Id);
+                    System.debug('about to redirect');
+                    ApexPages.PageReference lgn = Site.login(u.Username, password, startUrl);
                     if(!Test.isRunningTest()) {
-                     aura.redirect(lgn);
+                        aura.redirect(lgn);
                     }
                 }
                 else {
@@ -99,7 +146,15 @@ global class LightningSelfRegisterController {
         }
         catch (Exception ex) {
             Database.rollback(sp);
-            return ex.getMessage();            
+            System.debug(ex);
+
+            String errorMessage = ex.getMessage();
+            System.debug('errorMessage '+errorMessage);
+            if (errorMessage.contains(DUPLICATE_VALUE_ERROR) && errorMessage.contains(EXTERNAL_ID_FIELD)) {
+                return 'The email address (' + email + ') is already in use for ' + firstname + ' ' + lastname + '.';
+            }
+
+            return ex.getMessage();
         }
     }
     
@@ -133,5 +188,17 @@ global class LightningSelfRegisterController {
         } catch (Exception ex) {
             return ex.getMessage();            
         }        
-    }  
+    }
+
+    @AuraEnabled
+    global static Boolean checkUserEmail(String email) {
+        // checks if user with the email exists already in salesforce
+        // TBC - email or username is the reference?
+
+        List<User> users = [SELECT Id FROM User WHERE Username = :email];
+        if (users.size() > 0) {
+            return true;
+        }
+        return false;
+    }
 }

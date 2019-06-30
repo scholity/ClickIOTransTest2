@@ -10,7 +10,8 @@
     <authorizationRequiredPage>CommunitiesLogin</authorizationRequiredPage>
     <bandwidthExceededPage>BandwidthExceeded</bandwidthExceededPage>
     <browserXssProtection>true</browserXssProtection>
-    <clickjackProtectionLevel>SameOriginOnly</clickjackProtectionLevel>
+    <changePasswordPage>PHSS_ChangePasswordCommunity</changePasswordPage>
+    <clickjackProtectionLevel>AllowAllFraming</clickjackProtectionLevel>
     <contentSniffingProtection>true</contentSniffingProtection>
     <cspUpgradeInsecureRequests>true</cspUpgradeInsecureRequests>
     <enableAuraRequests>true</enableAuraRequests>
@@ -23,7 +24,7 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>shweta.kohli@redcross.org</siteAdmin>
+    <siteAdmin>gita.borovsky@redcross.org</siteAdmin>
     <siteType>ChatterNetwork</siteType>
     <subdomain>americanredcross</subdomain>
     <urlPathPrefix>learner</urlPathPrefix>
